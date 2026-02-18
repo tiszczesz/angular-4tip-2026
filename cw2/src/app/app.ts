@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { First } from './first/first';
+import { Circle } from './circle/circle';
 //import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [First,Circle],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
