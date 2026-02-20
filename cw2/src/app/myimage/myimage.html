@@ -1,0 +1,10 @@
+<p>myimage works! plik obrazka: {{imageSource}}</p>
+<img
+    (click)="handleClick($event)"
+ [src]="imageSource" [style]="{
+    width: '200px', 
+    height: 'auto',
+    padding: '20px',
+    border: '1px solid black',
+    cursor: 'pointer'
+    }" alt="Angular Image">

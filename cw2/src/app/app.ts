@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { First } from './first/first';
 import { Circle } from './circle/circle';
+import { Myimage } from "./myimage/myimage";
 //import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [First,Circle],
+  imports: [First, Circle, Myimage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
