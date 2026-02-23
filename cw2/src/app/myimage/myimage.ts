@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './myimage.css',
 })
 export class Myimage {
-handleClick($event: PointerEvent) {
-  console.log('Image clicked!', $event);
-}
+  handleClick($event: PointerEvent) {
+    console.log('Image clicked!', $event);
+    this.imageSource === 'angular1.png' ?
+      this.imageSource = 'angular2.png'
+      : this.imageSource = 'angular1.png';
+    console.log('Image source changed to:', this.imageSource);
+  }
 
   imageSource = 'angular1.png';
 }
