@@ -1,1 +1,8 @@
 <p>first-no-signals works!</p>
+<label for="text">Napisz coś: </label>
+<input (input)="handleInput($event)"
+     [value]="message" id="text" type="text">
+<div [style]="{border: '1px solid black', 
+    padding: '10px',
+    minHeight: '20px'
+}">{{message.toUpperCase()}}</div>

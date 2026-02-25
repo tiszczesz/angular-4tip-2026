@@ -1,0 +1,4 @@
+<p>Komponent drugi z signals</p>
+<label for="text">Podaj tekst: </label>
+<input type="text" id="text" (input)="handleInput($event)" [value]="message()">
+<div [innerHTML]="message()"></div>
