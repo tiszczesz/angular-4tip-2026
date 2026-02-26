@@ -330,6 +330,80 @@ export class ProductsComponent {
 
 ---
 
+## przykład timer
+# Timer (Signals) — Angular 20+ (2026)
+
+Poniższy przykład pokazuje timer w komponencie Angular oparty o **Signals**:
+- `running` (czy timer działa),
+- `seconds` (ile sekund minęło),
+- `display` jako `computed()` do formatowania,
+- `effect()` do start/stop `setInterval`.
+
+## TimerComponent
+
+```ts
+import { Component, computed, effect, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-timer',
+  standalone: true,
+  template: `
+    <h2>Timer</h2>
+
+    <p>Czas: <strong>{{ display() }}</strong></p>
+
+    <button (click)="start()" [disabled]="running()">Uruchom</button>
+    <button (click)="stop()" [disabled]="!running()">Zatrzymaj</button>
+    <button (click)="reset()">Resetuj</button>
+  `,
+})
+export class TimerComponent {
+  readonly running = signal(false);
+  readonly seconds = signal(0);
+
+  // Format mm:ss
+  readonly display = computed(() => {
+    const total = this.seconds();
+    const mm = Math.floor(total / 60);
+    const ss = total % 60;
+    return `${String(mm).padStart(2, '0')}:${String(ss).padStart(2, '0')}`;
+  });
+
+  private intervalId: number | null = null;
+
+  constructor() {
+    // Efekt zarządza side-effectem (setInterval) zależnie od running()
+    effect((onCleanup) => {
+      if (!this.running()) return;
+
+      this.intervalId = window.setInterval(() => {
+        this.seconds.update(s => s + 1);
+      }, 1000);
+
+      // Sprzątanie po zmianie zależności / zniszczeniu
+      onCleanup(() => {
+        if (this.intervalId !== null) {
+          clearInterval(this.intervalId);
+          this.intervalId = null;
+        }
+      });
+    });
+  }
+
+  start() {
+    this.running.set(true);
+  }
+
+  stop() {
+    this.running.set(false);
+  }
+
+  reset() {
+    this.running.set(false);
+    this.seconds.set(0);
+  }
+}
+
 ## 12. Słowniczek
 
 - **signal** — podstawowa, zapisywalna wartość reaktywna.
