@@ -1,0 +1,8 @@
+<p>rectangle works!</p>
+<div [style]="{height:'30px', width:`${width()}px`,
+     backgroundColor: 'green', cursor: 'pointer',
+        border: '2px solid black'
+     }" (click)="handleClick($event)"
+      (mousedown)="handleMouse($event)"
+      (contextmenu)="handleContext($event)"
+     ></div>
