@@ -2,3 +2,7 @@
 <label for="text">Podaj tekst: </label>
 <input type="text" id="text" (input)="handleInput($event)" [value]="message()">
 <div [innerHTML]="message()"></div>
+
+<button (click)="increment()">Zwieksz</button>
+<span>aktualna wartość: {{count()}}</span>
+<button (click)="decrement()">Zmniejsz</button>
