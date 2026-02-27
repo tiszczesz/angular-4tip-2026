@@ -1,0 +1,7 @@
+<p>Lista kursów</p>
+<div>Liczba kursów: {{courses.length}}</div>
+<ol>
+    @for (item of courses; track $index) {
+        <li>{{item}}</li>
+    }
+</ol>
