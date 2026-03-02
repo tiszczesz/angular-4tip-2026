@@ -1,0 +1,14 @@
+<h2>Formularz logowania i signals</h2>
+<div class="login-form">
+    {{loginForm().value() | json}}
+    <form>
+        <div class="row m-2">
+            <label class="col-3 text-end" for="username">Nazwa użytkownika:</label>
+            <input [formField]="loginForm.username" class="col-6" type="text"  >
+        </div>
+        <div class="row m-2">
+            <label class="col-3 text-end" for="password">Hasło:</label>
+            <input [formField]="loginForm.password" class="col-6" type="password"  >
+        </div>
+        <button class="offset-3 col-6 btn btn-secondary mt-2" type="submit">Zaloguj się</button>
+    </form>
