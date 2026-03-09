@@ -1,5 +1,25 @@
-<main class="container">
-  <h1>Ćwiczenie 5 - If</h1>
+<h1 class="text-center">Przegląd kursów</h1>
+<main class="d-flex gap-3 m-2">
+  <section class="w-50">
+    <h5>Lista dostępnych kursów</h5>
+    <ul class="list-group">
+      @for (item of myCourses(); track $index){
+      <li [style.color]="item.level === 'początkujący' 
+                   ?'green' 
+                   : item.level === 'średniozaawansowany' 
+                   ? 'orange' 
+                   : 'red'" 
+                   [style.textDecoration]="item.count >= item.limit 
+                   ? 'line-through' : 'none'" 
+                   [style.textDecorationColor]="item.count >= item.limit 
+                   ? 'black' : 'none'" 
+                   class="list-group-item">{{item.title}}</li>
+      }
+    </ul>
+  </section>
+  <section>
+    szczegóły wybranego kursu
+  </section>
 </main>
 
 <router-outlet></router-outlet>

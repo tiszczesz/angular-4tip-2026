@@ -20,7 +20,7 @@ export const courses: Course[] = [
         id: 2,
         title: 'Angular dla początkujących',
         description: 'Kompletny kurs Angular od zera do první aplikacji.',
-        count: 18,
+        count: 25,
         limit: 25,
         level: 'początkujący',
     },
