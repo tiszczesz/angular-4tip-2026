@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { type Course as courseType } from '../../data/courses';
+import { type Course as courseType, courses } from '../../data/courses';
 
 @Component({
   selector: 'app-course',
@@ -8,5 +8,5 @@ import { type Course as courseType } from '../../data/courses';
   styleUrl: './course.css',
 })
 export class Course {
-  course = input<courseType>();
+  course = input<courseType>(courses[0]);
 }

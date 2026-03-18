@@ -4,7 +4,8 @@
     <h5>Lista dostępnych kursów</h5>
     <ul class="list-group">
       @for (item of myCourses(); track $index){
-      <li [style.color]="item.level === 'początkujący' 
+      <li (click)="handleClick(item)"
+       [style.color]="item.level === 'początkujący' 
                    ?'green' 
                    : item.level === 'średniozaawansowany' 
                    ? 'orange' 
@@ -19,6 +20,8 @@
   </section>
   <section>
     szczegóły wybranego kursu
+
+    <app-course [course]="selectedCourse()" />
   </section>
 </main>
 
