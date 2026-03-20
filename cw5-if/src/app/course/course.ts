@@ -8,5 +8,6 @@ import { type Course as courseType, courses } from '../../data/courses';
   styleUrl: './course.css',
 })
 export class Course {
+  //sygnal pobrany z app.ts, który przechowuje aktualnie wybrany kurs
   course = input<courseType>(courses[0]);
 }

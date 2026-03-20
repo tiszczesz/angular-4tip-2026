@@ -11,6 +11,9 @@ import { Course } from './course/course';
   styleUrl: './app.css'
 })
 export class App {
+  //lista kursów
+  myCourses = signal<CourseType[]>(courses);
+  //aktualnie wybrany kurs na początku jest to pierwszy kurs z listy
   selectedCourse = signal<CourseType>(courses[0]);
 
   handleClick(item: CourseType) {
@@ -18,5 +21,4 @@ export class App {
     this.selectedCourse.set(item);
   }
 
-  myCourses = signal<CourseType[]>(courses);
 }
