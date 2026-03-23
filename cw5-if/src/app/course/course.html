@@ -1,8 +1,10 @@
-<h5>Szczegóły kursu  dsfdsfdsfdsf</h5>
 <div>
-    <h3>{{course().title}}</h3>
+    <h6 class="info">{{course().title}}</h6>
     <p>{{course().description}}</p>
     <p>Poziom: {{course().level}}</p>
     <p>Obecna liczba uczestników: {{course().count}} / {{course().limit}}</p>
-</div>
+    <button [disabled]="course().count >= course().limit" 
+        (click)="enroll()" class="btn btn-primary">Zapisz się
 
+    </button>
+</div>

@@ -1,4 +1,11 @@
-ul.list-group li:hover{
-    cursor: pointer;
-    background-color: lightgrey;
+ul.list-group li:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+.info {
+  background-color: lightblue;
+  color: blue;
+  padding: 20px;
+  border: solid 1px blue;
+  border-radius: 10px;
 }
