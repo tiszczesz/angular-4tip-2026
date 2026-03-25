@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import {type User, getUsers, getRoles} from "../models/usersData";
+import {type User, getUsers, getRoles,getLatestUserId} from "../models/usersData";
 
 @Component({
   selector: 'app-form-users',

@@ -82,3 +82,12 @@ export const getUsers = (): User[] => {
         }
     ];
 }
+export const getLatestUserId = (): number => {
+    let maxId = 0;
+    getUsers().forEach(user => {
+        if (user.id > maxId) {
+            maxId = user.id;
+        }
+    });
+    return maxId;
+}
