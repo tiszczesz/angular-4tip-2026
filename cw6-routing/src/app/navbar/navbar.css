@@ -1,0 +1,12 @@
+.myNavbar {
+  background-color: #d4eadf;
+  padding: 0.8rem 3rem;
+}
+.myNavbar a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.myNavbar a:hover {
+  text-decoration: underline;
+}
