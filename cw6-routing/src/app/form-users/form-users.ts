@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import {type User, getUsers, getRoles} from "../models/usersData";
 
 @Component({
   selector: 'app-form-users',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './form-users.css',
 })
 export class FormUsers {
-
+  users = signal<User[]>(getUsers());
+  roles = signal<string[]>(getRoles());
 }
