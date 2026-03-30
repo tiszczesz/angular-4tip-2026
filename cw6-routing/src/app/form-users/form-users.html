@@ -1,4 +1,35 @@
 <section class="d-flex gap-2">
-    <section class="w-50 m-2">Formularz dodawania użytkownika</section>
-    <section class="w-50 m-2">Tabela z użytkownikami</section>
+    <section class="w-50 m-2">
+        <h5>Formularz dodawania użytkownika</h5>
+        <form>
+            <div class="row m-2">
+                
+            </div>
+        </form>
+    </section>
+    <section class="w-50 m-2">
+        <h5>Tabela z użytkownikami, ilość: {{ users().length }}</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Lp</th>
+                    <th>Nazwa</th>                   
+                    <th>Rola</th>
+                    <th>Data</th>
+                    <th>---</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (user of users(); track $index) {
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ user.firstname }}</td>                        
+                        <td>{{ user.role }}</td>
+                        <td>{{ user.date.toLocaleDateString() }}</td>
+                        <td><button class="btn btn-danger" >Usuń</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
 </section>
