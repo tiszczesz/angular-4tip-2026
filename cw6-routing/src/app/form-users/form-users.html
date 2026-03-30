@@ -3,7 +3,20 @@
         <h5>Formularz dodawania użytkownika</h5>
         <form>
             <div class="row m-2">
-                
+                <label class="col-3 text-end" for="firstname">Nazwa</label>
+                <input class="col-6" type="text" required>
+            </div>
+            <div class="row m-2">
+                <label class="col-3 text-end" for="email">Email</label>
+                <input class="col-6" name="email" type="email" required>
+            </div>
+            <div class="row m-2">
+                <label class="col-3 text-end" for="role">Role</label>
+                <select class="col-6" name="role" id="role">
+                    @for (role of roles(); track $index) {
+                    <option value="{{ role }}">{{ role }}</option>
+                    }
+                </select>
             </div>
         </form>
     </section>
@@ -13,7 +26,7 @@
             <thead>
                 <tr>
                     <th>Lp</th>
-                    <th>Nazwa</th>                   
+                    <th>Nazwa</th>
                     <th>Rola</th>
                     <th>Data</th>
                     <th>---</th>
@@ -21,13 +34,13 @@
             </thead>
             <tbody>
                 @for (user of users(); track $index) {
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ user.firstname }}</td>                        
-                        <td>{{ user.role }}</td>
-                        <td>{{ user.date.toLocaleDateString() }}</td>
-                        <td><button class="btn btn-danger" >Usuń</button></td>
-                    </tr>
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ user.date.toLocaleDateString() }}</td>
+                    <td><button class="btn btn-danger">Usuń</button></td>
+                </tr>
                 }
             </tbody>
         </table>
