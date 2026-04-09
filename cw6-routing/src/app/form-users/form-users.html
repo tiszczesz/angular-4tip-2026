@@ -1,22 +1,30 @@
 <section class="d-flex gap-2">
     <section class="w-50 m-2">
         <h5>Formularz dodawania użytkownika</h5>
-        <form>
+        <div>
+            <h6>Podgląd danych z formularza:</h6>
+            <!-- <pre>{{ userForm() | json }}</pre> -->
+        </div>
+        <form class="border p-2" (submit)="handleSubmit($event)">
             <div class="row m-2">
                 <label class="col-3 text-end" for="firstname">Nazwa</label>
-                <input class="col-6" type="text" required>
+                <input class="col-6" type="text"  [formField]="userForm.name">
             </div>
             <div class="row m-2">
                 <label class="col-3 text-end" for="email">Email</label>
-                <input class="col-6" name="email" type="email" required>
+                <input class="col-6"  type="email"  [formField]="userForm.email">
             </div>
             <div class="row m-2">
                 <label class="col-3 text-end" for="role">Role</label>
-                <select class="col-6" name="role" id="role">
+                <select class="col-6"  id="role"  [formField]="userForm.role">
                     @for (role of roles(); track $index) {
                     <option value="{{ role }}">{{ role }}</option>
                     }
                 </select>
+            </div>
+            <div class="row m-2">
+                <div class="col-3"></div>
+                <button class="col-6 btn btn-primary">Dodaj</button>
             </div>
         </form>
     </section>
