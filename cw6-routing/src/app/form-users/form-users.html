@@ -47,7 +47,9 @@
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.role }}</td>
                     <td>{{ user.date.toLocaleDateString() }}</td>
-                    <td><button class="btn btn-danger">Usuń</button></td>
+                    <td>
+                        <button class="btn btn-danger" (click)="handleDelete(user.id)">Usuń</button>
+                    </td>
                 </tr>
                 }
             </tbody>
